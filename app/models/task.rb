@@ -1,8 +1,9 @@
 class Task < ApplicationRecord
-  validates :name, presence: true
-  validates :name, length: { maximum: 30 }
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
 
-  belongs_to :user
-
-  scope :recent, -> { order(created_at: :desc) }
+  def self.ransackableassociations(auth_object = nil)
+    []
+  end
 end
