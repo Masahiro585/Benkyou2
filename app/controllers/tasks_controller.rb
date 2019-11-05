@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   def update
     task = current_user.tasks.find(params[:id])
     task.update!(task_params)
-    redirect_to tasks_url, notice: "タスク「{#task.name}」を更新しました。"
+    redirect_to tasks_url, notice: "タスク「#{task.name}」を更新しました。"
   end
 
   def destroy
@@ -38,6 +38,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
+      TaskMailer.creation_email(@task).deliver_now
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       render :new
@@ -53,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :image)
   end
 
   def set_task
