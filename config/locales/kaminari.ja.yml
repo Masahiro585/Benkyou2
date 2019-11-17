@@ -3,7 +3,7 @@ ja:
     pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
-      previous: "&rsquo; 前"
+      previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "&hellip;"
   helpers:
@@ -11,7 +11,7 @@ ja:
       one_page:
         display_entries:
           zero: "%{entry_name}がありません"
-          one: "一件の%{entry_name}が表示されています"
+          one: "1件の%{entry_name}が表示されています"
           other: "%{count}件の%{entry_name}が表示されています"
       more_pages:
         dispaly_entries: "全%{total}件中 %{first}&nbsp;-&nbsp;%{last}件の%{entry_name}が表示されています"
